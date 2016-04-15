@@ -7,14 +7,14 @@ var gulp = require('gulp'),
 gulp.task('default', ['index','comboSass','scss','script','watch']);
 
 gulp.task('watch', function(){
-    gulp.watch('client/views/index.html',['index']);
+    gulp.watch('client/index.html',['index']);
     gulp.watch('client/scripts/app.js',['script']);
 });
 
 
 gulp.task('index', function (){
-   return gulp.src('client/views/index.html')
-          .pipe(gulp.dest('server/public/views/')); 
+   return gulp.src('client/index.html')
+          .pipe(gulp.dest('server/public/')); 
 });
 
 gulp.task('script', function (){
