@@ -27,7 +27,6 @@ function callAPI () {
         crossDomain : true,
         jsonp : 'json_callback',
         success : function(data){
-            console.log(data.results); 
             results = data.results;
             return showData();           
         }
@@ -37,26 +36,28 @@ function callAPI () {
 
 function showData () {
     
-     $('#out').empty(); 
+     $('#out').empty();    
+             
      
-        for (var i = 0; i < results.length; i++) {
-         //console.log(results[i].)
-         $('#out').append('<img class="media-object" src='+ results[i].image.medium_url +' >');
-         
-          }
-    
-    var el = '<div class="media">'+
-                '<div class="media-left">'+
-                    '<a href="#">'+
-                    '<img class="media-object" src='+ results[2].image.medium_url +' >'+
-                    '</a>'+
-                '</div>'+
-                '<div class="media-body">'+
-                    '<h4 class="media-heading">Media heading</h4>'+
-                    '...'+
-                '</div>'+
-            '</div>';
-                    
+     for (var i = 0; i < results.length; i++) {
+      
+         if (results[i].image.medium_url === null || results[i].deck === null){
+             
+         } else {
+                    var el = '<div class = "well row ">'+
+                                '<div class = "col-md-3">'+
+                                    '<img src= " '+ results[i].image.medium_url +' " >'+
+                                 '</div>'+
+                                 '<div class= "col-md-6 ">'+
+                                '<p>'+    results[i].deck + '</p>' +
+                                 '</div>'+
+                             '</div>';  
+                             
+              $('#out').append(el);               
+         }
+     }  
+     
+          
                       
 }
 

@@ -9,6 +9,7 @@ gulp.task('default', ['index','comboSass','scss','script','watch']);
 gulp.task('watch', function(){
     gulp.watch('client/index.html',['index']);
     gulp.watch('client/scripts/app.js',['script']);
+    gulp.watch('client/styles/scss/*.scss', ['comboSass', 'scss']);
 });
 
 
